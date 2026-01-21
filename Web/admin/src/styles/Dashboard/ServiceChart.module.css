@@ -1,0 +1,228 @@
+.serviceChartCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chartHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.chartTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin: 0;
+}
+
+.chartSubtitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.refreshBtn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.2s ease;
+}
+
+.refreshBtn:hover {
+  background: var(--chip-bg);
+  color: var(--text-strong);
+}
+
+.chartSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.donutSkeleton {
+  width: 200px;
+  height: 200px;
+  background: var(--chip-bg);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.legendSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legendItemSkeleton {
+  height: 20px;
+  background: var(--chip-bg);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.donutChartContainer {
+  flex: 1;
+  display: flex;
+    flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.emptyChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--text-muted);
+}
+
+.donutChart {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.donutSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donutSegment {
+  transition: all 0.3s ease;
+  animation: segmentGrow 0.8s ease-out forwards;
+  animation-delay: var(--delay);
+  transform-origin: center;
+  opacity: 0;
+}
+
+@keyframes segmentGrow {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.donutSegment:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.donutCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centerValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0;
+}
+
+.centerLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.serviceLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: var(--chip-bg);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.legendItem:hover {
+  background: var(--border);
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legendContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.legendName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-strong);
+}
+
+.legendStats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendPercentage {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.legendCount {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .donutChart {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .centerValue {
+    font-size: 20px;
+  }
+}

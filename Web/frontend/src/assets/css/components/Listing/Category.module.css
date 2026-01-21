@@ -1,0 +1,318 @@
+.wrap {
+  padding: clamp(40px, 6vw, 60px) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: clamp(32px, 5vw, 40px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  color: var(--text-strong);
+  margin: 0 0 clamp(8px, 1.5vw, 12px);
+}
+
+.subtitle {
+  font-size: clamp(14px, 2.2vw, 16px);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.categoryContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 16px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease 0.2s;
+}
+
+.categoryContainer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scrollBtn {
+  width: clamp(40px, 6vw, 48px);
+  height: clamp(40px, 6vw, 48px);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-strong);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: clamp(18px, 3vw, 20px);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.scrollBtn:hover {
+  background: var(--cta-end);
+  color: #ffffff;
+  border-color: var(--cta-end);
+  transform: scale(1.05);
+}
+
+.categoriesWrapper {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden; /* Prevent vertical scroll */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 0; /* Add small padding for better scroll area */
+}
+
+.categoriesWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.categories {
+  display: flex;
+  gap: clamp(10px, 1.5vw, 12px); /* Reduced gap */
+  padding: clamp(6px, 1vw, 8px) 0; /* Reduced padding */
+  min-width: max-content;
+  align-items: stretch; /* Ensure consistent height */
+}
+
+.categoryCard {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.5vw, 12px); /* Reduced gap */
+  padding: clamp(12px, 2vw, 16px); /* Reduced padding */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: clamp(10px, 1.5vw, 12px); /* Reduced border radius */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-width: 180px; /* Reduced from 200px */
+  /* max-width: 220px; Add max-width to prevent cards from getting too wide */
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+  flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+.categoryCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--category-color, var(--cta-end));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.categoryCard:hover,
+.categoryCard.active {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--category-color, var(--cta-end));
+}
+
+.categoryCard:hover::before,
+.categoryCard.active::before {
+  transform: scaleX(1);
+}
+
+.categoryIcon {
+  width: clamp(48px, 8vw, 56px);
+  height: clamp(48px, 8vw, 56px);
+  border-radius: clamp(12px, 2vw, 16px);
+  background: color-mix(in oklab, var(--category-color, var(--cta-end)) 15%, var(--surface));
+  color: var(--category-color, var(--cta-end));
+  display: grid;
+  place-items: center;
+  font-size: clamp(20px, 4vw, 24px);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryIcon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--category-color, var(--cta-end));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.categoryCard:hover .categoryIcon::before,
+.categoryCard.active .categoryIcon::before {
+  opacity: 0.1;
+}
+
+.categoryIcon svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.categoryCard:hover .categoryIcon svg,
+.categoryCard.active .categoryIcon svg {
+  transform: scale(1.1);
+}
+
+.categoryContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2px, 0.5vw, 4px);
+}
+
+.categoryName {
+  font-size: clamp(15px, 2.5vw, 17px);
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.categoryCount {
+  font-size: clamp(12px, 2vw, 14px);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.categoryBadge {
+  width: clamp(24px, 4vw, 28px);
+  height: clamp(24px, 4vw, 28px);
+  border-radius: 50%;
+  background: var(--category-color, var(--cta-end));
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: clamp(10px, 1.8vw, 12px);
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.categoryCard:hover .categoryBadge,
+.categoryCard.active .categoryBadge {
+  transform: scale(1.1);
+}
+
+.categoryCard:hover .categoryIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .categoryContainer {
+    margin: 0 -16px; /* Extend to screen edges */
+    padding: 0 16px;
+  }
+  
+  .categoriesWrapper {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .categoryCard {
+    min-width: 160px; /* Reduced for mobile */
+    max-width: 180px;
+  }
+  .scrollBtn {
+    display: none;
+  }
+  
+  .categoriesWrapper {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+  
+  .categoryCard {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoryCard {
+    min-width: 140px; /* Further reduced for small mobile */
+    max-width: 160px;
+    padding: 10px;
+    gap: 8px;
+  }
+  
+  .categoryContent {
+    align-items: center;
+  }
+  
+  .categoryBadge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .categoryContainer,
+  .categoryCard,
+  .categoryIcon,
+  .categoryBadge {
+    transition: none;
+    animation: none;
+  }
+  
+  .header.visible,
+  .categoryContainer.visible {
+    transform: none;
+  }
+  
+  .categoryCard {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .categoryCard {
+    border-width: 2px;
+  }
+  
+  .categoryIcon {
+    border: 2px solid var(--category-color, var(--cta-end));
+  }
+}

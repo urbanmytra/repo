@@ -1,0 +1,341 @@
+.adminHeader {
+  height: var(--admin-header-height);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mobileMenuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 16px;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.searchInput {
+  width: 300px;
+  padding: 12px 16px 12px 44px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-strong);
+  font-size: 14px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerItem {
+  position: relative;
+}
+
+.notificationBtn {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.notificationBtn:hover {
+  background: var(--chip-bg);
+  color: var(--text-strong);
+}
+
+.notificationBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--admin-danger);
+  color: white;
+  border-radius: 999px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  color: var(--text-strong);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.profileBtn:hover {
+  background: var(--chip-bg);
+}
+
+.profileAvatar {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--admin-primary), var(--admin-primary-dark));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+    font-size: 14px;
+}
+
+.profileAvatar.large {
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profileName {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profileRole {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.profileArrow {
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.notificationsDropdown,
+.profileDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--admin-shadow-lg);
+  min-width: 320px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.dropdownHeader {
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdownHeader h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.notificationCount {
+  background: var(--admin-primary);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.notificationsList {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.notificationItem {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.notificationItem:hover {
+  background: var(--chip-bg);
+}
+
+.notificationItem.unread {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.notificationContent h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.notificationContent p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.notificationTime {
+  font-size: 12px;
+  color: var(--text-subtle);
+}
+
+.dropdownFooter {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.viewAllBtn {
+  width: 100%;
+  padding: 12px;
+  background: var(--admin-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewAllBtn:hover {
+  background: var(--admin-primary-dark);
+}
+
+.profileDetails {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profileText h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profileText p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.dropdownMenu {
+  padding: 8px;
+}
+
+.dropdownItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: var(--text-strong);
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.dropdownItem:hover {
+  background: var(--chip-bg);
+}
+
+.dropdownItem.logout {
+  color: var(--admin-danger);
+}
+
+.dropdownItem.logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.dropdownDivider {
+  margin: 8px 0;
+  border: none;
+  height: 1px;
+  background: var(--border);
+}
+
+.dropdownOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+}
+
+@media (max-width: 1024px) {
+  .mobileMenuToggle {
+    display: block;
+  }
+  
+  .searchInput {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .searchInput {
+    width: 100%;
+  }
+  
+  .headerRight {
+    gap: 8px;
+  }
+  
+  .profileInfo {
+    display: none;
+  }
+}

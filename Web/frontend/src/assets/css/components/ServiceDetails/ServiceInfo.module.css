@@ -1,0 +1,247 @@
+.wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: clamp(16px, 3vw, 20px);
+  padding: clamp(20px, 4vw, 28px);
+  margin-bottom: clamp(24px, 4vw, 32px);
+  box-shadow: var(--shadow-sm);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(20px, 4vw, 32px);
+  align-items: start;
+  margin-bottom: clamp(20px, 3vw, 24px);
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 12px);
+}
+
+.title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  color: var(--text-strong);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vw, 8px);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1vw, 8px);
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #fbbf24;
+  font-size: clamp(16px, 2.5vw, 18px);
+}
+
+.ratingText {
+  font-size: clamp(14px, 2.2vw, 16px);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.reviewCount {
+  font-size: clamp(13px, 2vw, 15px);
+  color: var(--text-muted);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1vw, 8px);
+  font-size: clamp(14px, 2.2vw, 16px);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.priceSection {
+  text-align: right;
+}
+
+.pricing {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(8px, 1.5vw, 12px);
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  color: var(--success);
+}
+
+.oldPrice {
+  font-size: clamp(16px, 2.5vw, 18px);
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.discount {
+  background: var(--danger);
+  color: #ffffff;
+  padding: clamp(4px, 1vw, 6px) clamp(8px, 1.5vw, 10px);
+  border-radius: clamp(4px, 1vw, 6px);
+  font-size: clamp(11px, 1.8vw, 13px);
+  font-weight: 700;
+}
+
+.priceNote {
+  font-size: clamp(12px, 2vw, 14px);
+  color: var(--text-muted);
+  margin: clamp(4px, 1vw, 6px) 0 0;
+}
+
+.features {
+  display: flex;
+  gap: clamp(16px, 3vw, 24px);
+  flex-wrap: wrap;
+  margin-bottom: clamp(20px, 3vw, 24px);
+  padding: clamp(16px, 3vw, 20px);
+  background: var(--chip-bg);
+  border-radius: clamp(12px, 2vw, 16px);
+  border: 1px solid var(--border);
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1vw, 8px);
+  font-size: clamp(13px, 2vw, 15px);
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.feature svg {
+  color: var(--cta-end);
+  font-size: clamp(16px, 2.5vw, 18px);
+}
+
+.booking {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 20px);
+  flex-wrap: wrap;
+}
+
+.quantitySelector {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 12px);
+}
+
+.quantityLabel {
+  font-size: clamp(14px, 2.2vw, 16px);
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: clamp(8px, 1.5vw, 12px);
+  overflow: hidden;
+}
+
+.quantityBtn {
+  width: clamp(32px, 5vw, 36px);
+  height: clamp(32px, 5vw, 36px);
+  border: none;
+  background: var(--surface);
+  color: var(--text-strong);
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: grid;
+  place-items: center;
+}
+
+.quantityBtn:hover:not(:disabled) {
+  background: var(--chip-bg-hover);
+}
+
+.quantityBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity {
+  padding: 0 clamp(12px, 2vw, 16px);
+  font-size: clamp(14px, 2.2vw, 16px);
+  font-weight: 700;
+  color: var(--text-strong);
+  min-width: clamp(40px, 6vw, 48px);
+  text-align: center;
+  background: var(--chip-bg);
+}
+
+.bookBtn {
+  flex: 1;
+  min-width: 200px;
+  background: linear-gradient(135deg, var(--cta-start), var(--cta-end));
+  color: #ffffff;
+  border: none;
+  padding: clamp(14px, 2.5vw, 18px) clamp(20px, 4vw, 28px);
+  border-radius: clamp(12px, 2vw, 16px);
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+}
+
+.bookBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .priceSection {
+    text-align: left;
+  }
+  
+  .pricing {
+    justify-content: flex-start;
+  }
+  
+  .features {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .booking {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .quantitySelector {
+    justify-content: center;
+  }
+}

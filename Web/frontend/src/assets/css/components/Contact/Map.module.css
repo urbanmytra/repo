@@ -1,0 +1,15 @@
+.wrap {
+  padding: 0 0 40px;
+}
+.mapCard {
+  margin-top: -8px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--surface);
+}
+.map {
+  width: 100%;
+  height: clamp(280px, 48vw, 520px);
+  border: 0;
+}

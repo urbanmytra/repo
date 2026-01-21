@@ -1,0 +1,598 @@
+/* src/assets/css/pages/BookService.module.css */
+
+.bookingPage {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  padding: clamp(20px, 4vw, 40px) 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
+}
+
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.spinner {
+  font-size: clamp(16px, 2.5vw, 18px);
+  color: var(--text-muted);
+}
+
+.error h2 {
+  color: var(--text-strong);
+  margin-bottom: 16px;
+}
+
+.error button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(24px, 5vw, 32px);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--text-strong);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+}
+
+.header h1 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-strong);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 5vw, 32px);
+}
+
+.serviceSummary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 24px);
+  box-shadow: var(--shadow);
+}
+
+.serviceInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.serviceImage {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.serviceDetails h3 {
+  font-size: clamp(18px, 3vw, 20px);
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: var(--text-strong);
+}
+
+.serviceDetails p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.servicePrice {
+  font-size: clamp(18px, 3vw, 20px);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.originalPrice {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+.bookingContent {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(24px, 5vw, 32px);
+  box-shadow: var(--shadow);
+}
+
+.progressSteps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: clamp(32px, 6vw, 48px);
+  position: relative;
+}
+
+.progressSteps::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border);
+  z-index: 1;
+}
+
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  padding: 0 16px;
+  z-index: 2;
+  position: relative;
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.progressStep.active .stepNumber {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.progressStep.completed .stepNumber {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.stepLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.progressStep.active .stepLabel,
+.progressStep.completed .stepLabel {
+  color: var(--text-strong);
+}
+
+.stepContent {
+  margin-bottom: clamp(32px, 6vw, 48px);
+}
+
+.step h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 600;
+  margin: 0 0 clamp(24px, 5vw, 32px);
+  color: var(--text-strong);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 4vw, 24px);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(16px, 3vw, 20px);
+}
+
+.formGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+  width: 100%;
+  padding: clamp(12px, 2.5vw, 16px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: clamp(14px, 2vw, 16px);
+  color: var(--text-strong);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: var(--focus-border);
+  box-shadow: var(--focus-ring);
+}
+
+.formGroup input.error,
+.formGroup textarea.error,
+.formGroup select.error {
+  border-color: var(--danger);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.errorText {
+  font-size: 13px;
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.timeSlots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.timeSlot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-medium);
+}
+
+.timeSlot:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+}
+
+.timeSlot.selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.quantitySelector {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.quantitySelector button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-strong);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quantitySelector button:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+}
+
+.quantitySelector button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantitySelector span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-strong);
+  min-width: 40px;
+  text-align: center;
+}
+
+.summary {
+  display: grid;
+  gap: clamp(20px, 4vw, 24px);
+}
+
+.summarySection {
+  padding: 20px;
+  background: var(--surface-2);
+  border-radius: 12px;
+}
+
+.summarySection h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--text-strong);
+}
+
+.summarySection p {
+  font-size: 14px;
+  color: var(--text-medium);
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.summarySection p:last-child {
+  margin-bottom: 0;
+}
+
+.paymentMethod {
+  margin: clamp(24px, 5vw, 32px) 0;
+}
+
+.paymentMethod h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--text-strong);
+}
+
+.paymentOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.paymentOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paymentOption:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+}
+
+.paymentOption input {
+  margin: 0;
+}
+
+.qrCodeContainer {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.qrCode {
+  margin: 0 auto;
+  height: 150px;
+  width: auto;
+  object-fit: contain;
+}
+
+.priceBreakdown {
+  background: var(--surface-2);
+  border-radius: 12px;
+  padding: 20px;
+  margin: clamp(24px, 5vw, 32px) 0;
+}
+
+.priceBreakdown h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--text-strong);
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.priceRow:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.priceRow.total {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 16px;
+  color: var(--text-strong);
+}
+
+.errorAlert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  color: var(--danger);
+  font-size: 14px;
+  font-weight: 500;
+  margin: 16px 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: clamp(24px, 5vw, 32px);
+  border-top: 1px solid var(--border);
+}
+
+.prevBtn,
+.nextBtn,
+.bookBtn {
+  padding: clamp(12px, 2.5vw, 16px) clamp(24px, 4vw, 32px);
+  border-radius: 12px;
+  font-size: clamp(14px, 2.5vw, 16px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.prevBtn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-strong);
+}
+
+.prevBtn:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+}
+
+.nextBtn,
+.bookBtn {
+  background: linear-gradient(135deg, var(--cta-start), var(--cta-end));
+  color: white;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+  margin-left: auto;
+}
+
+.nextBtn:hover:not(:disabled),
+.bookBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--cta-hover-start), var(--cta-hover-end));
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+}
+
+.prevBtn:disabled,
+.nextBtn:disabled,
+.bookBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .bookingPage {
+    padding: 16px 0;
+  }
+  
+  .progressSteps {
+    margin-bottom: 24px;
+  }
+  
+  .stepLabel {
+    display: none;
+  }
+  
+  .timeSlots {
+    grid-template-columns: 1fr;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .navigation {
+    flex-direction: column;
+  }
+  
+  .prevBtn {
+    order: 2;
+  }
+  
+  .nextBtn,
+  .bookBtn {
+    order: 1;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceInfo {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .progressSteps {
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .progressSteps::before {
+    display: none;
+  }
+}

@@ -1,0 +1,9 @@
+.usersPage {
+  /* Users page specific styles */
+}
+
+.usersContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

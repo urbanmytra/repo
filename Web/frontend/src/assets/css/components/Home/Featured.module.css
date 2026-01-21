@@ -1,0 +1,66 @@
+.block {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: clamp(18px, 4vw, 28px);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.block::after,
+.block::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  bottom: -10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  transform: rotate(45deg);
+}
+.block::before {
+  left: 20%;
+  border-right: none;
+  border-top: none;
+}
+.block::after {
+  right: 20%;
+  border-left: none;
+  border-top: none;
+}
+.head {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+  align-items: end;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 28px;
+}
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in oklab, var(--cta-end) 18%, var(--surface-2));
+  color: #fff;
+  flex: 0 0 auto;
+}
+@media (max-width: 900px) {
+  .head {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

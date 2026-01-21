@@ -1,0 +1,37 @@
+.wrap {
+  padding-bottom: 0;
+}
+.row {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: 26px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form {
+  display: grid;
+  gap: 12px;
+}
+.features {
+  margin: 16px 0;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.features span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--chip-bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 14px;
+}
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

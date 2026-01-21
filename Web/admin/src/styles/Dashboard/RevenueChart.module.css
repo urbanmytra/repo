@@ -1,0 +1,427 @@
+/* RevenueChart.module.css */
+
+.chartCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: clamp(16px, 2.5vw, 24px);
+  padding: clamp(20px, 3vw, 28px);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.chartCard:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Header */
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: clamp(20px, 3vw, 28px);
+  gap: clamp(16px, 2vw, 20px);
+  flex-wrap: wrap;
+}
+
+.chartTitleSection {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 12px);
+}
+
+.chartTitle {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0;
+}
+
+.chartStats {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 16px);
+  flex-wrap: wrap;
+}
+
+.totalRevenue {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800;
+  color: var(--text-strong);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.revenueGrowth {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
+  padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 12px);
+  border-radius: 999px;
+}
+
+.revenueGrowth.positive {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.revenueGrowth.negative {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* Controls */
+.chartControls {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 12px);
+}
+
+.timeRangeSelect {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  color: var(--text-strong);
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 16px);
+  border-radius: clamp(8px, 1.5vw, 12px);
+  font-size: clamp(13px, 2vw, 15px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.timeRangeSelect:hover:not(:disabled) {
+  border-color: var(--primary-light);
+}
+
+.timeRangeSelect:focus {
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+}
+
+.timeRangeSelect:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refreshBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(36px, 5vw, 40px);
+  height: clamp(36px, 5vw, 40px);
+  background: var(--chip-bg);
+  border: 2px solid var(--border);
+  border-radius: clamp(8px, 1.5vw, 10px);
+  color: var(--text-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refreshBtn:hover:not(:disabled) {
+  background: var(--primary-bg);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.refreshBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refreshBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ✅ CHART CONTAINER - CRITICAL FIX */
+.chartContainer {
+  width: 100%;
+  height: 300px; /* Fixed height */
+  min-height: 300px;
+  margin-bottom: clamp(16px, 2.5vw, 20px);
+  position: relative;
+}
+
+.chartBars {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end; /* ✅ Align bars to bottom */
+  justify-content: space-between;
+  gap: clamp(8px, 1.5vw, 12px);
+  padding: clamp(12px, 2vw, 16px);
+  background: linear-gradient(to top, var(--chip-bg) 0%, transparent 100%);
+  border-radius: clamp(8px, 1.5vw, 12px);
+  border: 1px solid var(--border);
+}
+
+.chartBarWrapper {
+  flex: 1;
+  height: 100%; /* ✅ Full height of container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* ✅ Push content to bottom */
+  gap: clamp(6px, 1vw, 8px);
+  position: relative;
+}
+
+.chartBar {
+  width: 100%;
+  max-width: clamp(40px, 8vw, 60px);
+  min-height: 4px; /* ✅ Minimum visible height */
+  background: linear-gradient(180deg, var(--admin-primary) 0%, var(--admin-primary-dark) 100%);
+  border-radius: clamp(6px, 1vw, 8px) clamp(6px, 1vw, 8px) 0 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+  animation: barGrow 0.6s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+  transform-origin: bottom;
+}
+
+/* ✅ Bar growth animation */
+@keyframes barGrow {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.chartBar:hover {
+  background: linear-gradient(180deg, var(--primary-hover) 0%, var(--accent-hover) 100%);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+  transform: scaleY(1.05);
+}
+
+.chartBar:hover .barTooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-8px);
+}
+
+.barTooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-strong);
+  color: var(--surface);
+  padding: clamp(6px, 1vw, 8px) clamp(10px, 1.5vw, 12px);
+  border-radius: clamp(6px, 1vw, 8px);
+  font-size: clamp(12px, 1.8vw, 14px);
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.barTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--text-strong);
+}
+
+.chartLabel {
+  font-size: clamp(11px, 1.8vw, 13px);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  white-space: nowrap;
+  margin-top: clamp(4px, 0.8vw, 6px);
+}
+
+/* Loading skeleton */
+.chartSkeleton {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(8px, 1.5vw, 12px);
+  padding: clamp(12px, 2vw, 16px);
+}
+
+.skeletonBar {
+  flex: 1;
+  max-width: clamp(40px, 8vw, 60px);
+  background: linear-gradient(
+    90deg,
+    var(--chip-bg) 0%,
+    var(--chip-bg-hover) 50%,
+    var(--chip-bg) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: clamp(6px, 1vw, 8px) clamp(6px, 1vw, 8px) 0 0;
+  animation: shimmer 1.5s infinite, pulse 2s infinite;
+}
+
+.skeletonBar:nth-child(1) { height: 45%; }
+.skeletonBar:nth-child(2) { height: 60%; }
+.skeletonBar:nth-child(3) { height: 80%; }
+.skeletonBar:nth-child(4) { height: 100%; }
+.skeletonBar:nth-child(5) { height: 70%; }
+.skeletonBar:nth-child(6) { height: 55%; }
+.skeletonBar:nth-child(7) { height: 65%; }
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.statsSkeletonLine {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeletonLine {
+  height: clamp(20px, 3vw, 24px);
+  width: clamp(120px, 20vw, 160px);
+  background: linear-gradient(
+    90deg,
+    var(--chip-bg) 0%,
+    var(--chip-bg-hover) 50%,
+    var(--chip-bg) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonLine.short {
+  width: clamp(80px, 15vw, 100px);
+  height: clamp(16px, 2.5vw, 18px);
+}
+
+/* Footer */
+.chartFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: clamp(16px, 2.5vw, 20px);
+  border-top: 1px solid var(--border);
+  gap: clamp(12px, 2vw, 16px);
+  flex-wrap: wrap;
+}
+
+.chartLegend {
+  display: flex;
+  gap: clamp(16px, 2.5vw, 20px);
+  align-items: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1vw, 8px);
+  font-size: clamp(12px, 2vw, 14px);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.legendColor {
+  width: clamp(12px, 2vw, 14px);
+  height: clamp(12px, 2vw, 14px);
+  border-radius: 3px;
+}
+
+.legendColor.primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  box-shadow: 0 2px 6px rgba(14, 165, 233, 0.3);
+}
+
+.chartSummary {
+  font-size: clamp(12px, 2vw, 14px);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Spinning animation */
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chartHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chartControls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .timeRangeSelect {
+    flex: 1;
+  }
+
+  .chartContainer {
+    height: 250px;
+    min-height: 250px;
+  }
+
+  .chartBars {
+    gap: clamp(4px, 1vw, 6px);
+    padding: clamp(8px, 1.5vw, 12px);
+  }
+
+  .chartBar {
+    max-width: clamp(30px, 6vw, 40px);
+  }
+
+  .chartLabel {
+    font-size: clamp(10px, 1.5vw, 11px);
+  }
+}
+
+@media (max-width: 480px) {
+  .chartStats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .totalRevenue {
+    font-size: clamp(20px, 4vw, 24px);
+  }
+
+  .chartContainer {
+    height: 200px;
+    min-height: 200px;
+  }
+
+  .chartBar {
+    max-width: clamp(24px, 5vw, 32px);
+  }
+}

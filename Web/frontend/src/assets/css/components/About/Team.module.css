@@ -1,0 +1,238 @@
+.wrap {
+  padding: clamp(60px, 10vw, 100px) 0;
+  background: var(--bg);
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto clamp(40px, 8vw, 60px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.badge {
+  background: linear-gradient(135deg, var(--cta-start), var(--cta-end));
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  margin-bottom: clamp(16px, 3vw, 20px);
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--cta-start), var(--cta-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: clamp(16px, 2.5vw, 18px);
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: clamp(12px, 2vw, 16px) 0 0;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(24px, 4vw, 32px);
+}
+
+.teamGrid.visible .memberCard {
+  animation: slideInUp 0.6s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.memberCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: clamp(16px, 3vw, 20px);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.memberCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--cta-end);
+}
+
+.memberImage {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.memberImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.memberCard:hover .memberImage img {
+  transform: scale(1.05);
+}
+
+.memberOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: clamp(16px, 3vw, 20px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.memberCard:hover .memberOverlay {
+  opacity: 1;
+}
+
+.socialLinks {
+  display: flex;
+  gap: clamp(8px, 1.5vw, 12px);
+}
+
+.socialLinks a {
+  width: clamp(36px, 6vw, 40px);
+  height: clamp(36px, 6vw, 40px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-strong);
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-size: clamp(16px, 3vw, 18px);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.socialLinks a:hover {
+  background: var(--cta-end);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.memberInfo {
+  padding: clamp(20px, 4vw, 24px);
+  text-align: center;
+}
+
+.memberName {
+  font-size: clamp(18px, 3vw, 20px);
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0 0 clamp(4px, 1vw, 6px);
+}
+
+.memberRole {
+  font-size: clamp(14px, 2.2vw, 16px);
+  color: var(--cta-end);
+  font-weight: 600;
+  margin-bottom: clamp(8px, 1.5vw, 12px);
+}
+
+.memberBio {
+  font-size: clamp(13px, 2vw, 15px);
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .teamGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: clamp(20px, 4vw, 24px);
+  }
+}
+
+@media (max-width: 480px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .memberCard {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .memberCard,
+  .memberImage img,
+  .memberOverlay,
+  .socialLinks a {
+    transition: none;
+    animation: none;
+  }
+  
+  .header.visible {
+    transform: none;
+  }
+  
+  .teamGrid.visible .memberCard {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .memberCard {
+    border-width: 2px;
+  }
+  
+  .socialLinks a {
+    border: 2px solid var(--text-strong);
+  }
+}
+
+/* Print styles */
+@media print {
+  .memberOverlay,
+  .socialLinks {
+    display: none;
+  }
+  
+  .memberCard {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}

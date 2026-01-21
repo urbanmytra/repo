@@ -1,0 +1,60 @@
+.dashboardPage {
+  /* Dashboard page specific styles */
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.loadingSpinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px;
+}
+
+.dashboardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.dashboardRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.dashboardCol2 {
+  /* 2/3 width column */
+}
+
+.dashboardCol1 {
+  /* 1/3 width column */
+}
+
+@media (max-width: 1024px) {
+  .dashboardRow {
+    grid-template-columns: 1fr;
+  }
+}

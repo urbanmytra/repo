@@ -1,0 +1,260 @@
+/* SubCategory.module.css (refactored to use globals.css tokens & utilities) */
+.wrap {
+  padding: 3rem 0;
+  /* use theme gradient token from globals */
+  background: var(--gradient-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.08)"/></svg>');
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  /* use nav / surface tokens from globals */
+  background: var(--nav-bg);
+  color: var(--text-strong);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  margin-bottom: 2rem;
+}
+
+.backBtn:hover {
+  background: linear-gradient(135deg, var(--cta-hover-start), var(--cta-hover-end));
+  color: var(--surface);
+  transform: translateX(-5px);
+}
+
+.titleGroup { margin-top: 1rem; }
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--surface);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.9);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.subCategoryContainer {
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease 0.2s;
+}
+
+.subCategoryContainer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* scroll buttons — rely on global tokens */
+.scrollBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: none;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  color: var(--primary);
+}
+
+.scrollBtn:first-of-type { left: -24px; }
+.scrollBtn:last-of-type { right: -24px; }
+
+.scrollBtn:hover {
+  background: linear-gradient(135deg, var(--cta-start), var(--cta-end));
+  color: var(--surface);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.scrollBtn svg { width: 24px; height: 24px; }
+
+.subCategoriesWrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1rem 0;
+}
+
+.subCategoriesWrapper::-webkit-scrollbar { display: none; }
+
+.subCategories {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  min-width: min-content;
+}
+
+/* Use global surface / shadow / border tokens for cards */
+.subCategoryCard {
+  min-width: 200px;
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.subCategoryCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.subCategoryCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.subCategoryCard:hover::before { transform: scaleX(1); }
+
+.subCategoryCard.active {
+  border-color: var(--primary);
+  background: var(--gradient-secondary);
+  color: var(--surface);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(37,99,235,0.25);
+}
+
+.subCategoryCard.active::before {
+  transform: scaleX(1);
+  background: var(--surface);
+}
+
+/* icon uses the primary gradient token */
+.subCategoryIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--surface);
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.subCategoryCard.active .subCategoryIcon {
+  background: var(--surface);
+  color: var(--primary);
+}
+
+.subCategoryContent { text-align: center; flex: 1; }
+
+.subCategoryName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.subCategoryCard.active .subCategoryName { color: var(--surface); }
+
+.subCategoryCount {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.subCategoryCard.active .subCategoryCount { color: rgba(255,255,255,0.9); }
+
+@media (max-width: 768px) {
+  .title { font-size: 2rem; }
+  .subtitle { font-size: 1rem; }
+  .scrollBtn { display: none; }
+  .subCategories { padding: 0 1rem; }
+  .subCategoryCard { min-width: 160px; padding: 1.25rem; }
+  .subCategoryIcon { width: 56px; height: 56px; font-size: 1.5rem; }
+}
+/* ... keep all the refactored CSS above (same as I gave earlier) ... */
+
+/* add slide-in-up animation local to module (avoid colliding with global slideIn) */
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Use the local animation name so behaviour is predictable */
+.subCategoryCard {
+  /* ... other props ... */
+  animation: slideInUp 0.5s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* ensure scroll buttons are clickable even if parent overflow hidden */
+.scrollBtn {
+  z-index: 40;
+  pointer-events: auto;
+}
+
+/* rest of file unchanged */

@@ -1,0 +1,81 @@
+.settingsPage {
+  /* Settings page specific styles */
+}
+
+.settingsContainer {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 32px;
+}
+
+.settingsSidebar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px 0;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.settingsTab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  width: 100%;
+}
+
+.settingsTab:hover {
+  background: var(--chip-bg);
+  color: var(--text-strong);
+}
+
+.settingsTab.active {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--admin-primary);
+  border-left-color: var(--admin-primary);
+}
+
+.settingsMain {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.settingsFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 1024px) {
+  .settingsContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .settingsSidebar {
+    position: static;
+  }
+  
+  .settingsTab {
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+  
+  .settingsTab.active {
+    border-left: none;
+    border-bottom-color: var(--admin-primary);
+  }
+}

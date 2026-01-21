@@ -1,0 +1,55 @@
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.adminMain {
+  flex: 1;
+  margin-left: var(--admin-sidebar-width);
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* When sidebar is collapsed, reduce the left margin */
+.adminMain.sidebarCollapsed {
+  margin-left: var(--admin-sidebar-collapsed);
+}
+
+.sidebarOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.sidebarOverlay.active {
+  display: block;
+}
+
+.adminContent {
+  flex: 1;
+  padding: 32px;
+  background: var(--bg-secondary);
+}
+
+@media (max-width: 1024px) {
+  .adminMain {
+    margin-left: 0 !important;
+  }
+  
+  .adminContent {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .adminContent {
+    padding: 16px;
+  }
+}
