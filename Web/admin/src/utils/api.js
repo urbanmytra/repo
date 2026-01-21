@@ -1,6 +1,6 @@
 // API Configuration and HTTP client
 // const API_BASE_URL = import.meta.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1';
-const API_BASE_URL = 'https://project-bagajation-backend.onrender.com/api/v1';
+const API_BASE_URL = 'https://urbanmytrabackend.onrender.com/api/v1';
 
 
 class ApiClient {
