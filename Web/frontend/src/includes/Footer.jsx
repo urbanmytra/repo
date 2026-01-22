@@ -211,8 +211,7 @@ export default function Footer() {
                   className={styles.contactItem}>
                   <FiMapPin size={16} />
                   <span>
-                    721, Nabagram Jhil Rd, Nabagram, Panchpota, Rajpur Sonarpur,
-                    West Bengal 700152
+                    J/37, Block J, Bagha Jatin Pally, Baghajatin Colony, Kolkata, West Bengal 700032, India
                   </span>
                 </a>
 
@@ -287,7 +286,7 @@ export default function Footer() {
           <div className={styles.bottom}>
             <div className={styles.bottomContent}>
               <p className={styles.copyright}>
-                © {currentYear} LG Smart Services. All rights reserved.
+                © {currentYear} Urban Mytra Services. All rights reserved.
               </p>
 
               <div className={styles.bottomLinks}>
