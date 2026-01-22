@@ -1,5 +1,5 @@
-import React from 'react';
-import s from '../../assets/css/components/Contact/Map.module.css';
+import React from "react";
+import s from "../../assets/css/components/Contact/Map.module.css";
 
 export default function Map() {
   return (
@@ -9,7 +9,7 @@ export default function Map() {
           <iframe
             title="Map"
             className={s.map}
-            src="https://maps.app.goo.gl/RGGoqmqHu52i7zzK9"
+            src="https://www.google.com/maps?q=J/37,+Block+J,+Bagha+Jatin+Pally,+Baghajatin+Colony,+Kolkata,+West+Bengal+700032&output=embed"
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
