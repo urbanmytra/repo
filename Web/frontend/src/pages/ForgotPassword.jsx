@@ -42,7 +42,7 @@ export default function ForgotPassword() {
               <FiArrowLeft />
             </button>
             <div className={s.logo}>
-              <h1>Bagajatin</h1>
+              <h1>Urban Mytra</h1>
             </div>
           </div>
 
@@ -89,7 +89,7 @@ export default function ForgotPassword() {
         </div>
         <div className={s.sidePanel}>
           <div className={s.sidePanelContent}>
-            <h3>Join Bagajatin Today</h3>
+            <h3>Join Urban Mytra Today</h3>
             <p>
               Access thousands of professional home services at your fingertips
             </p>

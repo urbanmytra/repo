@@ -186,14 +186,14 @@ const handleSubmit = async (e) => {
               <FiArrowLeft />
             </button>
             <div className={s.logo}>
-              <h1>Bagajatin</h1>
+              <h1>Urban Mytra</h1>
             </div>
           </div>
 
           <div className={s.content}>
             <div className={s.welcome}>
               <h2>Create Account</h2>
-              <p>Join Bagajatin to access professional home services</p>
+              <p>Join Urban Mytra to access professional home services</p>
             </div>
 
             <form className={s.form} onSubmit={handleSubmit}>

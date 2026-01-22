@@ -139,7 +139,7 @@ export default function ResetPassword() {
                 <FiArrowLeft />
               </button>
               <div className={s.logo}>
-                <h1>Bagajatin</h1>
+                <h1>Urban Mytra</h1>
               </div>
             </div>
 
@@ -221,7 +221,7 @@ export default function ResetPassword() {
               <FiArrowLeft />
             </button>
             <div className={s.logo}>
-              <h1>Bagajatin</h1>
+              <h1>Urban Mytra</h1>
             </div>
           </div>
 

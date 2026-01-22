@@ -205,7 +205,7 @@ export default function Footer() {
                   </div>
                 </a>
                 <a
-                  href="https://maps.app.goo.gl/SLbrVuSZamzpbAmb6"
+                  href="https://maps.app.goo.gl/RGGoqmqHu52i7zzK9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.contactItem}>
@@ -292,7 +292,7 @@ export default function Footer() {
 
               <div className={styles.bottomLinks}>
                 <a
-                  href="https://maps.app.goo.gl/SLbrVuSZamzpbAmb6"
+                  href="https://maps.app.goo.gl/RGGoqmqHu52i7zzK9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.bottomLink}>
