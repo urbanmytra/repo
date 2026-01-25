@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://urbanmytra.in/sitemap.xml
+Sitemap: https://www.urbanmytra.in/sitemap.xml
