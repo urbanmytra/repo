@@ -1,38 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
->
-
-  <!-- Home -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
   <url>
     <loc>https://www.urbanmytra.in/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.urbanmytra.in/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.urbanmytra.in/" />
+    <image:image>
+      <image:loc>https://www.urbanmytra.in/LightLogo.png</image:loc>
+      <image:title>Urban Mytra Logo</image:title>
+      <image:caption>Urban Mytra - Professional Home Services</image:caption>
+    </image:image>
   </url>
 
-  <!-- Services -->
+  <!-- Services Listing Page -->
   <url>
     <loc>https://www.urbanmytra.in/listing</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.urbanmytra.in/listing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.urbanmytra.in/listing" />
   </url>
 
-  <!-- Static Pages -->
+  <!-- About Page -->
   <url>
     <loc>https://www.urbanmytra.in/about</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.urbanmytra.in/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.urbanmytra.in/about" />
   </url>
 
+  <!-- Contact Page -->
   <url>
     <loc>https://www.urbanmytra.in/contact</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.urbanmytra.in/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.urbanmytra.in/contact" />
+  </url>
+
+  <!-- FAQ Page -->
+  <url>
+    <loc>https://www.urbanmytra.in/faq</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.urbanmytra.in/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.urbanmytra.in/faq" />
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://www.urbanmytra.in/privacy-policy</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://www.urbanmytra.in/terms-of-service</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

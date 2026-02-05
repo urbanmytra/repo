@@ -1,0 +1,29 @@
+{
+  "name": "Urban Mytra - Professional Home Services",
+  "short_name": "Urban Mytra",
+  "description": "Professional home services with 24/7 availability. Trusted repairs, maintenance & home improvement services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0A192F",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/NavIconLogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/NavIconLogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["home services", "utilities", "lifestyle"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
