@@ -1,48 +1,37 @@
-# Urban Mytra - Robots.txt
-# www.urbanmytra.in
+# Urban Mytra - robots.txt
+# https://www.urbanmytra.in
 
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas
+# Block only truly private areas
 Disallow: /admin/
 Disallow: /private/
-Disallow: /api/
 Disallow: /checkout/
 Disallow: /cart/
 Disallow: /user/
-Disallow: /*.json$
-Disallow: /*.xml$
-
-# Allow CSS and JS for better rendering
-Allow: /css/
-Allow: /js/
-Allow: /src/
-Allow: /*.css$
-Allow: /*.js$
-
-# Crawl delay (optional - adjust based on server capacity)
-Crawl-delay: 1
 
 # Sitemaps
 Sitemap: https://www.urbanmytra.in/sitemap.xml
 Sitemap: https://www.urbanmytra.in/sitemap-services.xml
 Sitemap: https://www.urbanmytra.in/sitemap-blog.xml
 
-# Specific bot instructions
+# Google
 User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
 Allow: /
 
+# Bing
 User-agent: Bingbot
 Allow: /
 
+# Yahoo
 User-agent: Slurp
 Allow: /
 
-# Block bad bots (optional)
+# Optional slow commercial crawlers
 User-agent: AhrefsBot
 Crawl-delay: 5
 
